@@ -1,0 +1,36 @@
+.income {
+    font-size: 40px;
+}
+
+.parent_div {
+    display: flex;
+    justify-content: center;
+}
+
+.child_div{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form_group {
+    display: flex;
+}
+
+label {
+    display: flex;
+   
+    justify-content: flex-end;
+    
+    width: 400px;
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+  }

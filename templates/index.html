@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <h1>Expenses list</h1>
+   
+    <p class="income">Monthly Income - ${{ "{:.2f}".format(income) }}</p>
+
+    <button type="button">
+        <a href="{{ url_for('add_expense') }}">Add expense</a>
+    </button>
+ 
+
+    
+</body>
+</html>
