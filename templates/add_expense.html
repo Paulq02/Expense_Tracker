@@ -11,35 +11,35 @@
     <div class="parent_div">
         <div class="child_div">
             <h1>Add expense</h1>
-                <form method="post">
-                    <div class="form_group">
-                        <label for="name" id="name">Expense name
-                            <input type="text" name="name" id="name" required>
-                        </label>
-                       
-                    </div>
-                    <div class="form_group">
-                        <label for="amount" name="amount" id="amount">Amount
-                            <input type="number" name="amount" id="amount"required>
-                        </label>
+                <form method="POST" action="{{ url_for('submit_expense') }}">
+                    <label for="name" id="name">Expense name
+                        <input type="text" name="name" id="name" required>
+                    </label>
+                    <label for="amount" name="amount" id="amount">Amount
+                        <input type="number" name="amount" id="amount" step="0.01" required>
+                    </label>
+                   
+                    <button type="submit">Submit</button>
                     
 
-                    </div>
-                   
-                    
-                    <button type="submit">
-                        <a href="{{url_for('add_expense')}}">submit</a>
+                    <button class="home_button" type="button">
+                        <a href="{{url_for('home_page')}}">Home</a>
                     </button>
-        
+
+                    
+               
                 </form>
+
+                
+
+               
+                
         </div>
     </div>
    
     
    
-    <button>
-        <a href="{{url_for('home_page')}}">Home</a>
-    </button>
+
  
 </body>
 </html>

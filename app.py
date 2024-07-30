@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
 
-expenses = []
+my_list = []
 
 income = float(2660.00)
 
@@ -13,23 +13,48 @@ income = float(2660.00)
 
 
 
-@app.route('/')
+@app.route('/',  methods=["GET", "POST"])
 def home_page():
 
+    
+       
+
+    my_expenses = expenses_total()
+    
 
     
-    return render_template('index.html', income=income)
+    return render_template('index.html', income=income, my_list=my_list, my_expenses=my_expenses)
 
 
 
+@app.route('/submitted_data', methods=["GET", "POST"])
+def submit_expense():
+    name = request.form.get("name")
+    amount = float(request.form.get("amount", 0))
+   
+    my_list.append({"name":name, "amount":amount})
+    
+    return redirect(url_for('home_page'))
+
+
+"""@app.route('/view', methods=["GET", "POST"])
+def view_expenses():
+    return render_template('index.html', my_list=my_list)"""
 
 
 @app.route('/add_expense', methods=["GET", "POST"])
 def add_expense():
-    return render_template("add_expense.html")
+    return render_template('add_expense.html')
 
 
-    
+
+def expenses_total():
+    for expense in my_list:
+        total_expenses = 0
+        amount = expense["amount"]
+        total_expenses += amount
+    return float(total_expenses)
+        
 
 
 

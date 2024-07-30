@@ -1,3 +1,7 @@
+body {
+    display: flex;
+    justify-content: center;
+}
 .income {
     font-size: 40px;
 }
@@ -15,22 +19,38 @@
     text-align: center;
 }
 
-.form_group {
-    display: flex;
-}
 
 label {
     display: flex;
-   
-    justify-content: flex-end;
-    
-    width: 400px;
-    line-height: 26px;
-    margin-bottom: 10px;
-  }
+    justify-content: flex-end
+}
   
-  input {
+input {
+    margin-left: 20px;
     height: 20px;
-    flex: 0 0 200px;
-    margin-left: 10px;
-  }
+   
+}
+
+p {
+    color: 
+        red
+    }
+
+
+
+
+.home_button {
+    width: 57.48px;
+    height: 21px;
+    
+    
+}
+
+
+.expense_container {
+    width: 30%;
+   
+    
+}
+
+
