@@ -19,8 +19,8 @@ def home_page():
     
        
 
-    my_expenses = expenses_total()
     
+    my_expenses = expenses_total()
 
     
     return render_template('index.html', income=income, my_list=my_list, my_expenses=my_expenses)
@@ -34,26 +34,25 @@ def submit_expense():
    
     my_list.append({"name":name, "amount":amount})
     
+    
+    
+    
     return redirect(url_for('home_page'))
-
-
-"""@app.route('/view', methods=["GET", "POST"])
-def view_expenses():
-    return render_template('index.html', my_list=my_list)"""
 
 
 @app.route('/add_expense', methods=["GET", "POST"])
 def add_expense():
+
     return render_template('add_expense.html')
 
 
 
 def expenses_total():
+    total_expenses = 0
     for expense in my_list:
-        total_expenses = 0
         amount = expense["amount"]
         total_expenses += amount
-    return float(total_expenses)
+    return total_expenses
         
 
 
