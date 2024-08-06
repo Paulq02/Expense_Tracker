@@ -12,7 +12,6 @@ income = float(2660.00)
 
 
 
-
 @app.route('/',  methods=["GET", "POST"])
 def home_page():
 
@@ -22,8 +21,10 @@ def home_page():
     
     my_expenses = expenses_total()
 
+    free_money = calclulate_money_leftover()
+
     
-    return render_template('index.html', income=income, my_list=my_list, my_expenses=my_expenses)
+    return render_template('index.html', income=income, my_list=my_list, my_expenses=my_expenses, free_money=free_money)
 
 
 
@@ -40,7 +41,7 @@ def submit_expense():
     return redirect(url_for('home_page'))
 
 
-@app.route('/add_expense', methods=["GET", "POST"])
+@app.route('/add_expense/', methods=["GET", "POST"])
 def add_expense():
 
     return render_template('add_expense.html')
@@ -54,6 +55,22 @@ def expenses_total():
         total_expenses += amount
     return total_expenses
         
+
+
+def calclulate_money_leftover():
+    money_leftover = income - expenses_total()
+    return float(money_leftover)
+
+@app.route('/delete_expense/<int:index>', methods=['POST','GET'])
+def delete_expense(index):
+    if 0 <= index < len(my_list):
+        my_list.pop(index)
+    return redirect(url_for('home_page'))
+
+
+@app.route('/users/<name>')
+def user(name):
+	return "<h3>Welcome {}</h3>".format(name)
 
 
 
