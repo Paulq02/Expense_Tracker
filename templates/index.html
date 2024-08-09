@@ -21,19 +21,19 @@
 
     <p class="money_leftover">Money Leftover ${{"{:.2f}".format(free_money)}}</p>
 
-        {% for expense in my_list%}
-        {% set index=0 %}
+        {% for expense in my_list %}
+       
 
         <li>
-            <form action="{{url_for('delete_expense', index=index)}}" method="post">
-                {{expense.name}} ${{ "{:.2f}".format(expense.amount) }}
+            <form action="{{url_for('delete_expense', index=loop.index0)}}" method="post">
+                {{expense.name}} - {{ "{:.2f}".format(expense.amount) }} {{loop.index0}}
                 <button type="submit"><img class="icon" src="/static/images/icons8-trash.svg"></button>
             </form>
            
 
-
+            
         </li>
-        {% set index = index + 1 %}
+       
 
         {% endfor %}
       
@@ -49,10 +49,7 @@
     
 
 
-<button>
-    <a href="{{ url_for('user', name='paul') }}">Go to Paul's page</a>
-</button>
- 
+
 
     
 </body>

@@ -8,17 +8,34 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <div class="parent_div">
-        <div class="child_div">
+   
+        <div class="parent_div">
             <h1>Add expense</h1>
-                <form method="POST" action="{{ url_for('submit_expense') }}">
-                    <label for="name" id="name">Expense name
-                        <input type="text" name="name" id="name" required>
-                    </label>
-                    <label for="amount" name="amount" id="amount">Amount
-                        <input type="number" name="amount" id="amount" step="0.01" required>
-                    </label>
-                   
+                <div class="child_container">
+                    <form method="POST" action="{{ url_for('submit_expense') }}">
+                        <label for="name" id="name">Expense name
+                            <input type="text" name="name" id="name" required>
+                        </label>
+                        <label for="amount" name="amount" id="amount">Amount
+                            <input type="number" name="amount" id="amount" step="0.01" required>
+                        </label>
+
+                        <label for="select-category">Expense <br>
+                            category
+                            <select name="category" id="select-category">
+                                <option value="">--Please choose expense category--</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="credit">Credit card</option>
+                                <option value="gym">Gym</option>
+                                <option value="non-essential">Non-essentials (Youtube Premium, Google Storage, etc..)</option>
+                                <option value="bill">Monthly Bill</option>
+                                <option value="other">Other</option>
+
+                            </select>
+                            
+                        </label>
+
+                </div>
                     <button type="submit">Submit</button>
                     
 
@@ -35,7 +52,7 @@
                
                 
         </div>
-    </div>
+    
    
     
    
